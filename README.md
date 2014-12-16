@@ -26,4 +26,5 @@ Safari extension to quickly search specific websites
 * Wikipedia -> 'wiki'
 * Dictionary.com -> 'd'
 * Youtube -> 'y'
+* Netflix -> 'n'
 
