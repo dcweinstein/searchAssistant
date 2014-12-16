@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		safari.application.addEventListener('beforeSearch', alertSearch, true);
+
+		function alertSearch(e) {
+			var search = e.query;
+
+			var redditComp = /^r\s[a-zA-Z0-9]*/;
+			var wikiComp = /wiki\s[a-zA-Z0-9]*/;
+			var imdbComp = /imdb\s[a-zA-Z0-9]*/;
+			var dictionaryComp = /^d\s[a-zA-Z0-9]*/;
+			var youtubeComp = /^y\s[a-zA-Z0-9]*/;
+			var netflixComp = /^n\s[a-zA-Z0-9]*/;
+
+			if(redditComp.test(search)) {
+				e.preventDefault();
+				var subreddit = search.substring(2);	
+				e.target.url = "http://www.reddit.com/r/" + subreddit;
+			}
+			else if (wikiComp.test(search)) {
+				e.preventDefault();
+				var wikiSearch = search.substring(5);
+				e.target.url = "http://en.wikipedia.org/wiki/" + wikiSearch;
+			}
+			else if (imdbComp.test(search)) {
+				e.preventDefault();
+				var imdbSearch = search.substring(5);
+				e.target.url = "http://www.imdb.com/find?ref_=nv_sr_fn&q=" + imdbSearch + "&s=all";
+			}
+			else if (dictionaryComp.test(search)) {
+				e.preventDefault();
+				var dictionarySearch = search.substring(2);
+				e.target.url = "http://dictionary.reference.com/browse/" + dictionarySearch + "?s=t";
+			}
+			else if (youtubeComp.test(search)) {
+				e.preventDefault();
+				var youtubeSearch = search.substring(2);
+				e.target.url = "https://www.youtube.com/results?search_query=" + youtubeSearch;
+			}
+			else if (netflixComp.test(search)) {
+				e.preventDefault();
+				var netflixSearch = search.substring(2);
+				e.target.url = "http://www.netflix.com/search/" + netflixSearch;
+			}
+		}
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>
